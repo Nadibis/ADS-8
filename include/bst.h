@@ -8,7 +8,6 @@
 
 template <typename T>
 class BST {
-
  private:
     struct Node {
         T data;
