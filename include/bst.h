@@ -8,7 +8,8 @@
 
 template <typename T>
 class BST {
-private:
+
+ private:
     struct Node {
         T data;
         int count;
@@ -64,8 +65,9 @@ private:
             clear(node->right);
             delete node;
         }
-    } 
-public:
+    }
+
+ public:
     BST() : root(nullptr) {}
     ~BST() {
         clear(root);
