@@ -48,14 +48,14 @@ class BST {
         if (node == nullptr) return 0;
         return 1 + std::max(getHeight(node->left), getHeight(node->right));
     }
-    Node* search(Node* node, const T& value) const {   //бинарный поиск
+    Node* findNode(Node* node, const T& value) const {   //бинарный поиск
         if (node == nullptr || node->data == value) {
             return node;
         }
         if (value < node->data) {
-            return search(node->left, value);
+            return findNode(node->left, value);
         } else {
-            return search(node->right, value);
+            return findNode(node->right, value);
         }
     }
     void clear(Node* node) {          //очисткка
@@ -80,8 +80,12 @@ class BST {
     int depth() const {
         return getHeight(root);
     }
-    Node* search(const T& value) const {
-        return search(root, value);
+    int search(const T& value) const {
+    Node* node = findNode(root, value);
+    if (node == nullptr) {
+      return 0;
+    }
+    return node->count;
     }
     bool isEmpty() const {
         return root == nullptr;
