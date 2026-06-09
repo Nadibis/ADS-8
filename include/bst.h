@@ -45,8 +45,8 @@ class BST {
         }
     }
     int getHeight(Node* node) const {     //высота
-        if (node == nullptr) return 0;
-        return std::max(getHeight(node->left), getHeight(node->right));
+        if (node == nullptr) return -1;
+        return 1 + std::max(getHeight(node->left), getHeight(node->right));
     }
     Node* findNode(Node* node, const T& value) const {   //бинарный поиск
         if (node == nullptr || node->data == value) {
