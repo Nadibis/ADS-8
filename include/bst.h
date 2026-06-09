@@ -8,15 +8,13 @@
 
 template <typename T>
 class BST {
-
 private:
     struct Node {
         T data;
         int count;
         Node* left;
         Node* right;
-        
-        Node(const T& value) : data(value), count(1), left(nullptr), right(nullptr) {}
+        explicit Node(const T& value) : data(value), count(1), left(nullptr), right(nullptr) {}
     };
     Node* root;
     void insert(Node*& node, const T& value) {  //добавление узла
@@ -29,7 +27,7 @@ private:
         } else if (value > node->data) {
             insert(node->right, value);
         } else {
-            node->count++; 
+            node->count++;
         }
     }
     void inorder(Node* node) const {           //вывод в алфовитном порядке
@@ -66,11 +64,9 @@ private:
             clear(node->right);
             delete node;
         }
-    }
-    
+    } 
 public:
     BST() : root(nullptr) {}
-    
     ~BST() {
         clear(root);
     }
